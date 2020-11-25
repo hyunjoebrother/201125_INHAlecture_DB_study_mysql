@@ -1,0 +1,2890 @@
+Microsoft Windows [Version 10.0.18363.1198]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\현조형님>mysql -uroot -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| 201007_db_quiz        |
+| 201007_dbquiz         |
+| 201007dbquiz          |
+| 201007quiz            |
+| 201008quiz            |
+| 201014quiz            |
+| 201015_lecture_testdb |
+| company_ex7           |
+| company_study         |
+| dbdesign              |
+| dbhomework            |
+| dbhomework2           |
+| dbhomework3           |
+| information_schema    |
+| mysql                 |
+| performance_schema    |
+| sakila                |
+| sys                   |
+| world                 |
++-----------------------+
+19 rows in set (0.13 sec)
+
+mysql> show tables
+    -> ;
+ERROR 1046 (3D000): No database selected
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| 201007_db_quiz        |
+| 201007_dbquiz         |
+| 201007dbquiz          |
+| 201007quiz            |
+| 201008quiz            |
+| 201014quiz            |
+| 201015_lecture_testdb |
+| company_ex7           |
+| company_study         |
+| dbdesign              |
+| dbhomework            |
+| dbhomework2           |
+| dbhomework3           |
+| information_schema    |
+| mysql                 |
+| performance_schema    |
+| sakila                |
+| sys                   |
+| world                 |
++-----------------------+
+19 rows in set (0.01 sec)
+
+mysql> select company_study
+    -> ;
+ERROR 1054 (42S22): Unknown column 'company_study' in 'field list'
+mysql> show company_study;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'company_study' at line 1
+mysql> use compnay_study
+ERROR 1049 (42000): Unknown database 'compnay_study'
+mysql> ;
+ERROR:
+No query specified
+
+mysql> use company_study
+Database changed
+mysql> desc tables;
+ERROR 1146 (42S02): Table 'company_study.tables' doesn't exist
+mysql> show tables;
++-------------------------+
+| Tables_in_company_study |
++-------------------------+
+| department              |
+| dependent               |
+| dept_locations          |
+| employee                |
+| project                 |
+| works_on                |
++-------------------------+
+6 rows in set (0.07 sec)
+
+mysql> select bdate, address from employee where
+    -> fname='john' and minit='b' and lname='smith'
+    -> ;
++------------+-------------------------+
+| bdate      | address                 |
++------------+-------------------------+
+| 1965-01-09 | 731 Fondren, Houston TX |
++------------+-------------------------+
+1 row in set (0.11 sec)
+
+mysql> select fname, lname
+    -> from employee, department
+    -> where dname = 'research';
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| John     | Smith   |
+| Franklin | Wong    |
+| Joyce    | English |
+| Ramesh   | Narayan |
+| James    | Borg    |
+| Jennifer | Wallace |
+| Ahmad    | Jabbar  |
+| Alicia   | Zelaya  |
++----------+---------+
+8 rows in set (0.04 sec)
+
+mysql> select fname, lname, address
+    -> from employee, department
+    -> where dname = 'research' and dnumber = dno;
++----------+---------+-------------------------+
+| fname    | lname   | address                 |
++----------+---------+-------------------------+
+| John     | Smith   | 731 Fondren, Houston TX |
+| Franklin | Wong    | 638 Voss, Houston TX    |
+| Joyce    | English | 5631 Rice, Houston TX   |
+| Ramesh   | Narayan | 975 Fire Oak, Humble TX |
++----------+---------+-------------------------+
+4 rows in set (0.00 sec)
+
+mysql> select bdate, address
+    -> from employee
+    -> where fname = 'john' and minit = 'b'
+    -> and lname = 'smith
+    '> ;
+    '> ^Z
+Bye
+
+C:\Users\현조형님>mysql -uroot -p
+Enter password: ***********
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\Users\현조형님>mysql -uroot -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show datbases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'datbases' at line 1
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| 201007_db_quiz        |
+| 201007_dbquiz         |
+| 201007dbquiz          |
+| 201007quiz            |
+| 201008quiz            |
+| 201014quiz            |
+| 201015_lecture_testdb |
+| company_ex7           |
+| company_study         |
+| dbdesign              |
+| dbhomework            |
+| dbhomework2           |
+| dbhomework3           |
+| information_schema    |
+| mysql                 |
+| performance_schema    |
+| sakila                |
+| sys                   |
+| world                 |
++-----------------------+
+19 rows in set (0.05 sec)
+
+mysql> select company_study;
+ERROR 1054 (42S22): Unknown column 'company_study' in 'field list'
+mysql> desc company_study;
+ERROR 1046 (3D000): No database selected
+mysql> select database company_study;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'company_study' at line 1
+mysql> desc company_study
+    ->
+    -> ;
+ERROR 1046 (3D000): No database selected
+mysql> select database company_study
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'company_study' at line 1
+mysql> desc company_study
+    -> ;
+ERROR 1046 (3D000): No database selected
+mysql> select company_study
+    -> ;
+ERROR 1054 (42S22): Unknown column 'company_study' in 'field list'
+mysql> use company_study
+Database changed
+mysql> desc tables;
+ERROR 1146 (42S02): Table 'company_study.tables' doesn't exist
+mysql> show tables;
++-------------------------+
+| Tables_in_company_study |
++-------------------------+
+| department              |
+| dependent               |
+| dept_locations          |
+| employee                |
+| project                 |
+| works_on                |
++-------------------------+
+6 rows in set (0.01 sec)
+
+mysql> select bdate and address
+    -> from employee
+    -> where fname = 'john' and minit = 'b' and lname = 'smith';
++-------------------+
+| bdate and address |
++-------------------+
+|                 1 |
++-------------------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql> select bdate, address
+    -> from employee
+    -> where fname = 'john' and minit = 'b' and lname = 'smith';
++------------+-------------------------+
+| bdate      | address                 |
++------------+-------------------------+
+| 1965-01-09 | 731 Fondren, Houston TX |
++------------+-------------------------+
+1 row in set (0.01 sec)
+
+mysql> select fname, lname, address
+    -> from employee, department
+    -> where dname = 'research' and dnumber = dno;
++----------+---------+-------------------------+
+| fname    | lname   | address                 |
++----------+---------+-------------------------+
+| John     | Smith   | 731 Fondren, Houston TX |
+| Franklin | Wong    | 638 Voss, Houston TX    |
+| Joyce    | English | 5631 Rice, Houston TX   |
+| Ramesh   | Narayan | 975 Fire Oak, Humble TX |
++----------+---------+-------------------------+
+4 rows in set (0.01 sec)
+
+mysql> select *
+    -> from department, employee
+    -> ;
++----------------+---------+-----------+----------------+----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| Dname          | Dnumber | Mgr_ssn   | Mgr_start_date | Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno |
++----------------+---------+-----------+----------------+----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| Headquarters   |       1 | 888665555 | 1981-06-19     | John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 |
+| Administration |       4 | 987654321 | 1995-01-01     | John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 |
+| Research       |       5 | 333445555 | 1988-05-22     | John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 |
+| Headquarters   |       1 | 888665555 | 1981-06-19     | Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 |
+| Administration |       4 | 987654321 | 1995-01-01     | Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 |
+| Research       |       5 | 333445555 | 1988-05-22     | Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 |
+| Headquarters   |       1 | 888665555 | 1981-06-19     | Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 |
+| Administration |       4 | 987654321 | 1995-01-01     | Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 |
+| Research       |       5 | 333445555 | 1988-05-22     | Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 |
+| Headquarters   |       1 | 888665555 | 1981-06-19     | Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 |
+| Administration |       4 | 987654321 | 1995-01-01     | Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 |
+| Research       |       5 | 333445555 | 1988-05-22     | Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 |
+| Headquarters   |       1 | 888665555 | 1981-06-19     | James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 |
+| Administration |       4 | 987654321 | 1995-01-01     | James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 |
+| Research       |       5 | 333445555 | 1988-05-22     | James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 |
+| Headquarters   |       1 | 888665555 | 1981-06-19     | Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 |
+| Administration |       4 | 987654321 | 1995-01-01     | Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 |
+| Research       |       5 | 333445555 | 1988-05-22     | Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 |
+| Headquarters   |       1 | 888665555 | 1981-06-19     | Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 |
+| Administration |       4 | 987654321 | 1995-01-01     | Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 |
+| Research       |       5 | 333445555 | 1988-05-22     | Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 |
+| Headquarters   |       1 | 888665555 | 1981-06-19     | Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 |
+| Administration |       4 | 987654321 | 1995-01-01     | Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 |
+| Research       |       5 | 333445555 | 1988-05-22     | Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 |
++----------------+---------+-----------+----------------+----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+24 rows in set (0.05 sec)
+
+mysql> select *
+    -> from employee
+    -> where dno=5;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+4 rows in set (0.01 sec)
+
+mysql> select *
+    -> from employee;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 |
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+8 rows in set (0.00 sec)
+
+mysql> select ssn
+    -> from employee
+    -> ;
++-----------+
+| ssn       |
++-----------+
+| 888665555 |
+| 987654321 |
+| 987987987 |
+| 999887777 |
+| 123456789 |
+| 333445555 |
+| 453453453 |
+| 666884444 |
++-----------+
+8 rows in set (0.01 sec)
+
+mysql> select bdate, address
+    -> from employee
+    -> where fname='john' and minit='b' and lname='smith';
++------------+-------------------------+
+| bdate      | address                 |
++------------+-------------------------+
+| 1965-01-09 | 731 Fondren, Houston TX |
++------------+-------------------------+
+1 row in set (0.07 sec)
+
+mysql> select * from employee, department
+    -> where dnumber=dno;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno | Dname          | Dnumber | Mgr_ssn   | Mgr_start_date |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+8 rows in set (0.01 sec)
+
+mysql> select fname, lname, address
+    -> from employee, department
+    -> where dname='research' and dno=dnumber;
++----------+---------+-------------------------+
+| fname    | lname   | address                 |
++----------+---------+-------------------------+
+| John     | Smith   | 731 Fondren, Houston TX |
+| Franklin | Wong    | 638 Voss, Houston TX    |
+| Joyce    | English | 5631 Rice, Houston TX   |
+| Ramesh   | Narayan | 975 Fire Oak, Humble TX |
++----------+---------+-------------------------+
+4 rows in set (0.01 sec)
+
+mysql> select pnumber, dnumber, essn, fname, address, bdate
+    -> from employee, project, department
+    -> where pname = 'stafford' and dno = dnumber and essn = ssn;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    11
+Current database: company_study
+
+ERROR 1054 (42S22): Unknown column 'essn' in 'field list'
+mysql> ^Z
+Bye
+
+C:\Users\현조형님>mysql -uroot -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use company_study
+Database changed
+mysql> select pnumber, dnumber, essn, fname, address, bdate
+    -> from employee, project, department
+    -> where pname = 'stafford' and dno = dnumber and essn = ssn;
+ERROR 1054 (42S22): Unknown column 'essn' in 'field list'
+mysql> select pnumber, dnum, lname, address, bdate
+    -> from employee, project, department
+    -> where dno=dnumber and dnum=dnumber;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    13
+Current database: company_study
+
++---------+------+---------+-------------------------+------------+
+| pnumber | dnum | lname   | address                 | bdate      |
++---------+------+---------+-------------------------+------------+
+|      20 |    1 | Borg    | 450 Stone, Houston TX   | 1937-11-10 |
+|      10 |    4 | Wallace | 291 Berry, Bellaire TX  | 1941-06-20 |
+|      10 |    4 | Jabbar  | 980 Dallas, Houston TX  | 1969-03-29 |
+|      10 |    4 | Zelaya  | 3321 Castle, Spring TX  | 1968-01-19 |
+|      30 |    4 | Wallace | 291 Berry, Bellaire TX  | 1941-06-20 |
+|      30 |    4 | Jabbar  | 980 Dallas, Houston TX  | 1969-03-29 |
+|      30 |    4 | Zelaya  | 3321 Castle, Spring TX  | 1968-01-19 |
+|       1 |    5 | Smith   | 731 Fondren, Houston TX | 1965-01-09 |
+|       1 |    5 | Wong    | 638 Voss, Houston TX    | 1965-12-08 |
+|       1 |    5 | English | 5631 Rice, Houston TX   | 1972-07-31 |
+|       1 |    5 | Narayan | 975 Fire Oak, Humble TX | 1962-09-15 |
+|       2 |    5 | Smith   | 731 Fondren, Houston TX | 1965-01-09 |
+|       2 |    5 | Wong    | 638 Voss, Houston TX    | 1965-12-08 |
+|       2 |    5 | English | 5631 Rice, Houston TX   | 1972-07-31 |
+|       2 |    5 | Narayan | 975 Fire Oak, Humble TX | 1962-09-15 |
+|       3 |    5 | Smith   | 731 Fondren, Houston TX | 1965-01-09 |
+|       3 |    5 | Wong    | 638 Voss, Houston TX    | 1965-12-08 |
+|       3 |    5 | English | 5631 Rice, Houston TX   | 1972-07-31 |
+|       3 |    5 | Narayan | 975 Fire Oak, Humble TX | 1962-09-15 |
++---------+------+---------+-------------------------+------------+
+19 rows in set (0.17 sec)
+
+mysql> use company_study
+Database changed
+mysql> select pnumber, dnum, lname, address, bdate
+    -> from project, department, employee
+    -> where dnumber=dno and mgr_ssn=ssn and plocation='stafford';
++---------+------+---------+------------------------+------------+
+| pnumber | dnum | lname   | address                | bdate      |
++---------+------+---------+------------------------+------------+
+|      10 |    4 | Wong    | 638 Voss, Houston TX   | 1965-12-08 |
+|      30 |    4 | Wong    | 638 Voss, Houston TX   | 1965-12-08 |
+|      10 |    4 | Borg    | 450 Stone, Houston TX  | 1937-11-10 |
+|      30 |    4 | Borg    | 450 Stone, Houston TX  | 1937-11-10 |
+|      10 |    4 | Wallace | 291 Berry, Bellaire TX | 1941-06-20 |
+|      30 |    4 | Wallace | 291 Berry, Bellaire TX | 1941-06-20 |
++---------+------+---------+------------------------+------------+
+6 rows in set (0.02 sec)
+
+mysql> select pnumber, dnum, lname, address, bdate
+    -> from project, department, employee
+    -> where dnumber=dno and mgrssn=ssn and location='stafford';
+ERROR 1054 (42S22): Unknown column 'mgrssn' in 'where clause'
+mysql> select pnumber, dnum, lname, address, bdate
+    -> from project, department, employee
+    -> where dnumber=dno and mgr_ssn=ssn and location='stafford';
+ERROR 1054 (42S22): Unknown column 'location' in 'where clause'
+mysql> select lname, minit, fname
+    -> from employee.ssn, employee.super_ssn;
+ERROR 1049 (42000): Unknown database 'employee'
+mysql> e.fname, e.lname, s.fname, s.lname
+    -> from employee e, employee s
+    -> where e.supper_ssn=s.ssn;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'e.fname, e.lname, s.fname, s.lname
+from employee e, employee s
+where e.supper_ss' at line 1
+mysql> select e.fname, e.lname, s.fname, s.lname
+    -> from employee e, employee s
+    -> where e.supper_ssn=s.ssn;
+ERROR 1054 (42S22): Unknown column 'e.supper_ssn' in 'where clause'
+mysql> select e.fname, e.lname, s.fname, s.lname
+    -> from employee e, employee s
+    -> where e.super_ssn=s.ssn;
++----------+---------+----------+---------+
+| fname    | lname   | fname    | lname   |
++----------+---------+----------+---------+
+| John     | Smith   | Franklin | Wong    |
+| Franklin | Wong    | James    | Borg    |
+| Joyce    | English | Franklin | Wong    |
+| Ramesh   | Narayan | Franklin | Wong    |
+| Jennifer | Wallace | James    | Borg    |
+| Ahmad    | Jabbar  | Jennifer | Wallace |
+| Alicia   | Zelaya  | Jennifer | Wallace |
++----------+---------+----------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select ssn
+    -> from employee
+    -> ;
++-----------+
+| ssn       |
++-----------+
+| 888665555 |
+| 987654321 |
+| 987987987 |
+| 999887777 |
+| 123456789 |
+| 333445555 |
+| 453453453 |
+| 666884444 |
++-----------+
+8 rows in set (0.00 sec)
+
+mysql> select ssn, dname
+    -> from employee, department
+    -> ;
++-----------+----------------+
+| ssn       | dname          |
++-----------+----------------+
+| 888665555 | Administration |
+| 888665555 | Headquarters   |
+| 888665555 | Research       |
+| 987654321 | Administration |
+| 987654321 | Headquarters   |
+| 987654321 | Research       |
+| 987987987 | Administration |
+| 987987987 | Headquarters   |
+| 987987987 | Research       |
+| 999887777 | Administration |
+| 999887777 | Headquarters   |
+| 999887777 | Research       |
+| 123456789 | Administration |
+| 123456789 | Headquarters   |
+| 123456789 | Research       |
+| 333445555 | Administration |
+| 333445555 | Headquarters   |
+| 333445555 | Research       |
+| 453453453 | Administration |
+| 453453453 | Headquarters   |
+| 453453453 | Research       |
+| 666884444 | Administration |
+| 666884444 | Headquarters   |
+| 666884444 | Research       |
++-----------+----------------+
+24 rows in set (0.01 sec)
+
+mysql> select *
+    -> from employee, department
+    -> where dnumber=5 and dnumber=dno;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------+---------+-----------+----------------+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno | Dname    | Dnumber | Mgr_ssn   | Mgr_start_date |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------+---------+-----------+----------------+
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Research |       5 | 333445555 | 1988-05-22     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Research |       5 | 333445555 | 1988-05-22     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Research |       5 | 333445555 | 1988-05-22     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Research |       5 | 333445555 | 1988-05-22     |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------+---------+-----------+----------------+
+4 rows in set (0.01 sec)
+
+mysql> select *
+    -> from department, employee
+    -> where dname='research' and dno=dnumber;
++----------+---------+-----------+----------------+----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| Dname    | Dnumber | Mgr_ssn   | Mgr_start_date | Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno |
++----------+---------+-----------+----------------+----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| Research |       5 | 333445555 | 1988-05-22     | John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 |
+| Research |       5 | 333445555 | 1988-05-22     | Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 |
+| Research |       5 | 333445555 | 1988-05-22     | Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 |
+| Research |       5 | 333445555 | 1988-05-22     | Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 |
++----------+---------+-----------+----------------+----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+4 rows in set (0.00 sec)
+
+mysql> select *
+    -> from employee, department;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno | Dname          | Dnumber | Mgr_ssn   | Mgr_start_date |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Administration |       4 | 987654321 | 1995-01-01     |
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Administration |       4 | 987654321 | 1995-01-01     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Administration |       4 | 987654321 | 1995-01-01     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Administration |       4 | 987654321 | 1995-01-01     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 | Administration |       4 | 987654321 | 1995-01-01     |
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 | Research       |       5 | 333445555 | 1988-05-22     |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 | Research       |       5 | 333445555 | 1988-05-22     |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 | Research       |       5 | 333445555 | 1988-05-22     |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 | Research       |       5 | 333445555 | 1988-05-22     |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+24 rows in set (0.01 sec)
+
+mysql> select salary
+    -> from employee;
++--------+
+| salary |
++--------+
+|  30000 |
+|  40000 |
+|  25000 |
+|  38000 |
+|  55000 |
+|  43000 |
+|  25000 |
+|  25000 |
++--------+
+8 rows in set (0.00 sec)
+
+mysql> select distinct salary
+    -> from employee;
++--------+
+| salary |
++--------+
+|  30000 |
+|  40000 |
+|  25000 |
+|  38000 |
+|  55000 |
+|  43000 |
++--------+
+6 rows in set (0.02 sec)
+
+mysql> select pnumber
+    -> from project, employee
+    -> where dnum=dno and lname='smith';
++---------+
+| pnumber |
++---------+
+|       1 |
+|       2 |
+|       3 |
++---------+
+3 rows in set (0.00 sec)
+
+mysql> select pnumber
+    -> from project, employee, department
+    -> where dnumber=dno and mgr_ssn=ssn and lname='smith'
+    -> union
+    -> select pnumber
+    -> from project, employee, works_on
+    -> where pno=pnumber and essn=ssn and lname='smith';
++---------+
+| pnumber |
++---------+
+|       1 |
+|       2 |
++---------+
+2 rows in set (0.06 sec)
+
+mysql> (select pnumber
+    -> from project, employee, department
+    -> where dnumber=dno and mgr_ssn=ssn and lname='smith')
+    -> union
+    -> (select pnumber
+    -> from project, employee, works_on
+    -> where pno=pnumber and essn=ssn and lname='smith');
++---------+
+| pnumber |
++---------+
+|       1 |
+|       2 |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> select *
+    -> from employee
+    -> where address like '%houston, texas'%;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '%' at line 3
+mysql> select *
+    -> from employee
+    -> where address like '%houston, texas%';
+Empty set (0.01 sec)
+
+mysql> select e.fname, e.lname, 1.1*e.salary as increased_sal
+    -> from employee e, works_on w, project p
+    -> where e.ssn=w.essn and w.pno=p.pnumber and p.pname='productx';
++-------+---------+---------------+
+| fname | lname   | increased_sal |
++-------+---------+---------------+
+| John  | Smith   |       33000.0 |
+| Joyce | English |       27500.0 |
++-------+---------+---------------+
+2 rows in set (0.01 sec)
+
+mysql> select e.fname, e.lname
+    -> from employee e, department
+    -> ;
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| John     | Smith   |
+| John     | Smith   |
+| John     | Smith   |
+| Franklin | Wong    |
+| Franklin | Wong    |
+| Franklin | Wong    |
+| Joyce    | English |
+| Joyce    | English |
+| Joyce    | English |
+| Ramesh   | Narayan |
+| Ramesh   | Narayan |
+| Ramesh   | Narayan |
+| James    | Borg    |
+| James    | Borg    |
+| James    | Borg    |
+| Jennifer | Wallace |
+| Jennifer | Wallace |
+| Jennifer | Wallace |
+| Ahmad    | Jabbar  |
+| Ahmad    | Jabbar  |
+| Ahmad    | Jabbar  |
+| Alicia   | Zelaya  |
+| Alicia   | Zelaya  |
+| Alicia   | Zelaya  |
++----------+---------+
+24 rows in set (0.00 sec)
+
+mysql> select e.fname, e.lname, salary
+    -> from employee e, department d
+    -> where dno=5 and (30000<salary<40000);
++----------+---------+--------+
+| fname    | lname   | salary |
++----------+---------+--------+
+| John     | Smith   |  30000 |
+| Franklin | Wong    |  40000 |
+| Joyce    | English |  25000 |
+| Ramesh   | Narayan |  38000 |
+| John     | Smith   |  30000 |
+| Franklin | Wong    |  40000 |
+| Joyce    | English |  25000 |
+| Ramesh   | Narayan |  38000 |
+| John     | Smith   |  30000 |
+| Franklin | Wong    |  40000 |
+| Joyce    | English |  25000 |
+| Ramesh   | Narayan |  38000 |
++----------+---------+--------+
+12 rows in set (0.01 sec)
+
+mysql> select e.fname, e.lname, salary
+    -> from demployee
+    ->
+    -> ;
+ERROR 1146 (42S02): Table 'company_study.demployee' doesn't exist
+mysql> select e.fname, e.lname, salary
+    -> from employee
+    -> where (salary between 3000 and 4000) and dno=5;
+ERROR 1054 (42S22): Unknown column 'e.fname' in 'field list'
+mysql> select fname, lname, salary
+    -> from employee
+    -> where (salary between 3000 and 4000) and dno=5;
+Empty set (0.00 sec)
+
+mysql> select fname, lname, salary
+    -> from employee
+    -> where (salary between 30000 and 40000) and dno=5;
++----------+---------+--------+
+| fname    | lname   | salary |
++----------+---------+--------+
+| John     | Smith   |  30000 |
+| Franklin | Wong    |  40000 |
+| Ramesh   | Narayan |  38000 |
++----------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select fname, lname, salary
+    -> from employee
+    -> where (30000<salary<40000) and dno=5;
++----------+---------+--------+
+| fname    | lname   | salary |
++----------+---------+--------+
+| John     | Smith   |  30000 |
+| Franklin | Wong    |  40000 |
+| Joyce    | English |  25000 |
+| Ramesh   | Narayan |  38000 |
++----------+---------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select dname, lname, fname, pname
+    -> from deparment, employee, works_on, project
+    -> where dnumber=dno and ssn=essn and pno=pnumber
+    -> order by dname, lname, fname;
+ERROR 1146 (42S02): Table 'company_study.deparment' doesn't exist
+mysql> select dname, lname, fname, pname
+    -> from department, employee, works_on, project
+    -> where dnumber=dno and ssn=essn and pno=pnumber
+    -> order by dname, lname, fname;
++----------------+---------+----------+-----------------+
+| dname          | lname   | fname    | pname           |
++----------------+---------+----------+-----------------+
+| Administration | Jabbar  | Ahmad    | Computerization |
+| Administration | Jabbar  | Ahmad    | Newbenefits     |
+| Administration | Wallace | Jennifer | Reorganization  |
+| Administration | Wallace | Jennifer | Newbenefits     |
+| Administration | Zelaya  | Alicia   | Computerization |
+| Administration | Zelaya  | Alicia   | Newbenefits     |
+| Headquarters   | Borg    | James    | Reorganization  |
+| Research       | English | Joyce    | ProductX        |
+| Research       | English | Joyce    | ProductY        |
+| Research       | Narayan | Ramesh   | ProductZ        |
+| Research       | Smith   | John     | ProductX        |
+| Research       | Smith   | John     | ProductY        |
+| Research       | Wong    | Franklin | ProductY        |
+| Research       | Wong    | Franklin | ProductZ        |
+| Research       | Wong    | Franklin | Computerization |
+| Research       | Wong    | Franklin | Reorganization  |
++----------------+---------+----------+-----------------+
+16 rows in set (0.00 sec)
+
+mysql> select fname, lname
+    -> from employee
+    -> where super_ssn in null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'null' at line 3
+mysql> select fname, lname
+    -> from employee
+    -> where super_ssn is null;
++-------+-------+
+| fname | lname |
++-------+-------+
+| James | Borg  |
++-------+-------+
+1 row in set (0.01 sec)
+
+mysql> select ssn
+    -> from project, employee
+    -> where ssn;
++-----------+
+| ssn       |
++-----------+
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
++-----------+
+48 rows in set (0.01 sec)
+
+mysql> select ssn
+    -> from project, employee, works_on
+    -> where ssn=333445555 and hours=pname;
+Empty set, 6 warnings (0.01 sec)
+
+mysql> select essn
+    -> from works_on
+    -> where (pno, hours)
+    -> in (select pno, hours
+    -> from works_on
+    -> where essn='333445555')
+    -> ;
++-----------+
+| essn      |
++-----------+
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 999887777 |
+| 333445555 |
++-----------+
+5 rows in set (0.01 sec)
+
+mysql> select fname, lname, salary
+    -> from employee
+    -> where dno=5 and ;;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+ERROR:
+No query specified
+
+mysql> select lname, fname
+    -> from employee,
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> select lname, fname, salary
+    -> from employee
+    -> where salary>all
+    -> (select salary
+    -> from employee
+    -> where dno=5)
+    -> ;
++---------+----------+--------+
+| lname   | fname    | salary |
++---------+----------+--------+
+| Borg    | James    |  55000 |
+| Wallace | Jennifer |  43000 |
++---------+----------+--------+
+2 rows in set (0.01 sec)
+
+mysql> select lname, fname
+    -> from employee, dependent
+    -> where ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3
+mysql> select e.lname, e.fname
+    -> where employee e, dependent d
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'e, dependent d' at line 2
+mysql> select e.lname, e.fname
+    -> from employee e, dependent d
+    -> where d.dependent_name=e.fname and d.sex=e.sex;
+Empty set (0.03 sec)
+
+mysql> select e.fname, e.lname
+    -> from employee e
+    -> where e.ssn in
+    -> (select essn
+    -> from dependent d
+    -> where e.fname=d.dependent_name and e.sex=d.sex)
+    -> ;
+Empty set (0.00 sec)
+
+mysql> select fname, lname
+    -> from employee
+    -> where not exists
+    -> {select *
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '{select *' at line 4
+mysql> select fname, lname
+    -> from employee
+    -> where not exists
+    -> (select * from dependent where ssn=essn);
++--------+---------+
+| fname  | lname   |
++--------+---------+
+| Joyce  | English |
+| Ramesh | Narayan |
+| James  | Borg    |
+| Ahmad  | Jabbar  |
+| Alicia | Zelaya  |
++--------+---------+
+5 rows in set (0.01 sec)
+
+mysql> select fname, lname
+    -> from employee, dependent
+    -> where essn=ssn is null;
+Empty set (0.00 sec)
+
+mysql> select fname, lname from employee
+    -> where (select * from dependent where ssn=essn)
+    -> and
+    -> (select * from department where ssn=mgr_ssn);
+ERROR 1241 (21000): Operand should contain 1 column(s)
+mysql> select fname, lname from employee
+    -> where existd
+    -> ;
+ERROR 1054 (42S22): Unknown column 'existd' in 'where clause'
+mysql> select fname, lname from employee
+    -> where exists
+    -> (select * from dependent where ssn=essn)
+    -> and exists
+    -> (select * from department where ssn=mgr_ssn);
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| Franklin | Wong    |
+| Jennifer | Wallace |
++----------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select fname, lname from employee, dependent, department
+    -> where ssn=essn and ssn=mgr_ssn;
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| Franklin | Wong    |
+| Franklin | Wong    |
+| Franklin | Wong    |
+| Jennifer | Wallace |
++----------+---------+
+4 rows in set (0.00 sec)
+
+mysql> select fname, lname
+    -> from employee, project
+    -> where dno=5 and
+    -> exists(select * from project where dnum=dno);
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| John     | Smith   |
+| Franklin | Wong    |
+| Joyce    | English |
+| Ramesh   | Narayan |
+| John     | Smith   |
+| Franklin | Wong    |
+| Joyce    | English |
+| Ramesh   | Narayan |
+| John     | Smith   |
+| Franklin | Wong    |
+| Joyce    | English |
+| Ramesh   | Narayan |
+| John     | Smith   |
+| Franklin | Wong    |
+| Joyce    | English |
+| Ramesh   | Narayan |
+| John     | Smith   |
+| Franklin | Wong    |
+| Joyce    | English |
+| Ramesh   | Narayan |
+| John     | Smith   |
+| Franklin | Wong    |
+| Joyce    | English |
+| Ramesh   | Narayan |
++----------+---------+
+24 rows in set (0.01 sec)
+
+mysql> select fname, lname from employee
+    -> where not exists(select * from works_on b
+    -> where
+    -> (b.pno in (select pnumber
+    -> from project where dnum=5)
+    -> and
+    -> not exists(select * from works_on C
+    -> where C.essn=ssn and c.pno=b.pno)
+    -> ));
+Empty set (0.00 sec)
+
+mysql> select ssn
+    -> from employee, project
+    -> where pnumber;
++-----------+
+| ssn       |
++-----------+
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
++-----------+
+48 rows in set (0.00 sec)
+
+mysql> select essn
+    -> from works_on
+    -> where pno in (1,2,3);
++-----------+
+| essn      |
++-----------+
+| 123456789 |
+| 453453453 |
+| 123456789 |
+| 333445555 |
+| 453453453 |
+| 333445555 |
+| 666884444 |
++-----------+
+7 rows in set (0.01 sec)
+
+mysql> select distict essn
+    -> from works_on
+    -> where pno in (1,2,3);
+ERROR 1054 (42S22): Unknown column 'distict' in 'field list'
+mysql> select distinct essn
+    -> from works_on
+    -> where pno in (1,2,3);
++-----------+
+| essn      |
++-----------+
+| 123456789 |
+| 453453453 |
+| 333445555 |
+| 666884444 |
++-----------+
+4 rows in set (0.00 sec)
+
+mysql> select e.fname, m.fname
+    -> from employee ;
+ERROR 1054 (42S22): Unknown column 'e.fname' in 'field list'
+mysql> select e.fname, m.fname
+    -> select e.fname, m.fname;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select e.fname, m.fname' at line 2
+mysql> select e.fname, d.fname
+    -> from employee e, department d
+    -> where dno=dnumber, mgr_ssn=ssn;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', mgr_ssn=ssn' at line 3
+mysql> select e.fname, d.fname
+    -> from employee e, department d
+    -> where dno=dnumber and mgr_ssn=ssn;
+ERROR 1054 (42S22): Unknown column 'd.fname' in 'field list'
+mysql> select e.lname, s.lname
+    -> from employee e, employee s
+    -> where e.super_ssn=s.ssn;
++---------+---------+
+| lname   | lname   |
++---------+---------+
+| Smith   | Wong    |
+| Wong    | Borg    |
+| English | Wong    |
+| Narayan | Wong    |
+| Wallace | Borg    |
+| Jabbar  | Wallace |
+| Zelaya  | Wallace |
++---------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select e.lname as employee_name, s.lname as supervisor_name
+    -> from employee e, employee s
+    -> where e.super_ssn=s.ssn;
++---------------+-----------------+
+| employee_name | supervisor_name |
++---------------+-----------------+
+| Smith         | Wong            |
+| Wong          | Borg            |
+| English       | Wong            |
+| Narayan       | Wong            |
+| Wallace       | Borg            |
+| Jabbar        | Wallace         |
+| Zelaya        | Wallace         |
++---------------+-----------------+
+7 rows in set (0.00 sec)
+
+mysql> select *
+    -> from employee, department
+    -> where dnumber=dno;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno | Dname          | Dnumber | Mgr_ssn   | Mgr_start_date |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+8 rows in set (0.01 sec)
+
+mysql> select sum(salary), max(salary), min(salary), avg(salary)
+    -> from employee
+    ->
+    -> ;
++-------------+-------------+-------------+-------------+
+| sum(salary) | max(salary) | min(salary) | avg(salary) |
++-------------+-------------+-------------+-------------+
+|      281000 |       55000 |       25000 |  35125.0000 |
++-------------+-------------+-------------+-------------+
+1 row in set (0.01 sec)
+
+mysql> select sum(salary), max(salary), min(salary), avg(salary)
+    -> from employee, department
+    -> where dname='research';
++-------------+-------------+-------------+-------------+
+| sum(salary) | max(salary) | min(salary) | avg(salary) |
++-------------+-------------+-------------+-------------+
+|      281000 |       55000 |       25000 |  35125.0000 |
++-------------+-------------+-------------+-------------+
+1 row in set (0.01 sec)
+
+mysql> select sum(salary), max(salary), min(salary), avg(salary)
+    -> from employee, department
+    -> where dname='research' and dno=dnumber;
++-------------+-------------+-------------+-------------+
+| sum(salary) | max(salary) | min(salary) | avg(salary) |
++-------------+-------------+-------------+-------------+
+|      133000 |       40000 |       25000 |  33250.0000 |
++-------------+-------------+-------------+-------------+
+1 row in set (0.01 sec)
+
+mysql> select sum(salary), max(salary), min(salary), avg(salary)
+    ->
+    -> from (employee join department on dno=dnumber)
+    -> where dname='research';
++-------------+-------------+-------------+-------------+
+| sum(salary) | max(salary) | min(salary) | avg(salary) |
++-------------+-------------+-------------+-------------+
+|      133000 |       40000 |       25000 |  33250.0000 |
++-------------+-------------+-------------+-------------+
+1 row in set (0.01 sec)
+
+mysql> select count(*)
+    -> from employee;
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.04 sec)
+
+mysql> select count(*)
+    -> from emplotee, department
+    -> where dno-dnumber and dname='research';
+ERROR 1146 (42S02): Table 'company_study.emplotee' doesn't exist
+mysql> select count(*)
+    -> from employee, department
+    -> where dno=dnumber and dname='research';
++----------+
+| count(*) |
++----------+
+|        4 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(distinct salary)
+    -> from employee;
++------------------------+
+| count(distinct salary) |
++------------------------+
+|                      6 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select fname, lname
+    -> from employee, dependent
+    -> where essn=ssn and
+    -> (select count(*)>=2
+    -> from dependent);
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| John     | Smith   |
+| John     | Smith   |
+| John     | Smith   |
+| Franklin | Wong    |
+| Franklin | Wong    |
+| Franklin | Wong    |
+| Jennifer | Wallace |
++----------+---------+
+7 rows in set (0.01 sec)
+
+mysql> select lname, fname
+    -> from employee
+    -> where ( select count(*) from dependent where ssn=essn) >=2;
++-------+----------+
+| lname | fname    |
++-------+----------+
+| Smith | John     |
+| Wong  | Franklin |
++-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select dno, count(*), avg(salary)
+    -> from employee
+    -> group by dno;
++-----+----------+-------------+
+| dno | count(*) | avg(salary) |
++-----+----------+-------------+
+|   1 |        1 |  55000.0000 |
+|   4 |        3 |  31000.0000 |
+|   5 |        4 |  33250.0000 |
++-----+----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select pnumber, pname, count(*)
+    -> from project, employee
+    -> where pnumber=dno
+    -> group by project;
+ERROR 1054 (42S22): Unknown column 'project' in 'group statement'
+mysql> select pnumber, pname, count(*)
+    -> from project, works_on
+    -> where pnumber=pno
+    -> group by pnumber, pname;
++---------+-----------------+----------+
+| pnumber | pname           | count(*) |
++---------+-----------------+----------+
+|      10 | Computerization |        3 |
+|      30 | Newbenefits     |        3 |
+|       1 | ProductX        |        2 |
+|       2 | ProductY        |        3 |
+|       3 | ProductZ        |        2 |
+|      20 | Reorganization  |        3 |
++---------+-----------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select pnumber, pname, count(*)
+    -> from project, works_on
+    -> where pnumber=pno
+    -> group by pnumber, pname
+    -> having count(*)>=3;
++---------+-----------------+----------+
+| pnumber | pname           | count(*) |
++---------+-----------------+----------+
+|      10 | Computerization |        3 |
+|      30 | Newbenefits     |        3 |
+|       2 | ProductY        |        3 |
+|      20 | Reorganization  |        3 |
++---------+-----------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select dnumber, count(*)
+    -> from department, employee
+    -> where dno=dnumber and salary>40000
+    -> group by dnumber
+    -> having count(*)>=6;
+Empty set (0.00 sec)
+
+mysql> select dnumber, count(*) from department, employee
+    -> where dnumber=dno and salary>40000
+    -> and dno in
+    -> (select dno from employee
+    -> group by dno having count(*)>=6)
+    -> group by dnumber;
+Empty set (0.01 sec)
+
+mysql> select pnumber, pname, count(*)
+    -> from project, department
+    -> where dnum=dnumber and dnumber=5
+    -> group by pnumber, pname;
++---------+----------+----------+
+| pnumber | pname    | count(*) |
++---------+----------+----------+
+|       1 | ProductX |        1 |
+|       2 | ProductY |        1 |
+|       3 | ProductZ |        1 |
++---------+----------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select pnumber, pname, count(*)
+    -> from project, works_on, employee
+    -> where pnumber=pno and essn=ssn and dno=5
+    -> group by pnumber, pname;
++---------+-----------------+----------+
+| pnumber | pname           | count(*) |
++---------+-----------------+----------+
+|       1 | ProductX        |        2 |
+|       2 | ProductY        |        3 |
+|       3 | ProductZ        |        2 |
+|      10 | Computerization |        1 |
+|      20 | Reorganization  |        1 |
++---------+-----------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> desc t1;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    14
+Current database: company_study
+
+ERROR 1146 (42S02): Table 'company_study.t1' doesn't exist
+mysql> use database;
+ERROR 1049 (42000): Unknown database 'database'
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| 201007_db_quiz        |
+| 201007_dbquiz         |
+| 201007dbquiz          |
+| 201007quiz            |
+| 201008quiz            |
+| 201014quiz            |
+| 201015_lecture_testdb |
+| company_ex7           |
+| company_study         |
+| dbdesign              |
+| dbhomework            |
+| dbhomework2           |
+| dbhomework3           |
+| information_schema    |
+| mysql                 |
+| performance_schema    |
+| sakila                |
+| sys                   |
+| world                 |
++-----------------------+
+19 rows in set (0.04 sec)
+
+mysql> desc t1;
+ERROR 1146 (42S02): Table 'company_study.t1' doesn't exist
+mysql> cd ..
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cd ..' at line 1
+mysql> ^Z
+Bye
+
+C:\Users\현조형님>mysql -uroot
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: NO)
+
+C:\Users\현조형님>mysql -uroot -p
+Enter password: ***********
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+
+C:\Users\현조형님>mysql -uroot -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> desc t1;
+ERROR 1046 (3D000): No database selected
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| 201007_db_quiz        |
+| 201007_dbquiz         |
+| 201007dbquiz          |
+| 201007quiz            |
+| 201008quiz            |
+| 201014quiz            |
+| 201015_lecture_testdb |
+| company_ex7           |
+| company_study         |
+| dbdesign              |
+| dbhomework            |
+| dbhomework2           |
+| dbhomework3           |
+| information_schema    |
+| mysql                 |
+| performance_schema    |
+| sakila                |
+| sys                   |
+| world                 |
++-----------------------+
+19 rows in set (0.04 sec)
+
+mysql> use 201007quiz
+Database changed
+mysql> desc tables;
+ERROR 1146 (42S02): Table '201007quiz.tables' doesn't exist
+mysql> show tables;
++----------------------+
+| Tables_in_201007quiz |
++----------------------+
+| t1                   |
+| t2                   |
++----------------------+
+2 rows in set (0.04 sec)
+
+mysql> desc t1;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| a     | int     | NO   |     | NULL    |       |
+| b     | char(2) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+2 rows in set (0.04 sec)
+
+mysql> desc t2;
++-------+---------+------+-----+---------+-------+
+| Field | Type    | Null | Key | Default | Extra |
++-------+---------+------+-----+---------+-------+
+| a     | int     | NO   |     | NULL    |       |
+| c     | char(2) | YES  |     | NULL    |       |
++-------+---------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select * from t1;
++---+------+
+| a | b    |
++---+------+
+| 1 | xx   |
+| 2 | yy   |
++---+------+
+2 rows in set (0.04 sec)
+
+mysql> select * from t2;
++---+------+
+| a | c    |
++---+------+
+| 2 | zz   |
+| 3 | ww   |
++---+------+
+2 rows in set (0.01 sec)
+
+mysql> select * from t1 join t2 where t1.a=t2.a;
++---+------+---+------+
+| a | b    | a | c    |
++---+------+---+------+
+| 2 | yy   | 2 | zz   |
++---+------+---+------+
+1 row in set (0.01 sec)
+
+mysql> select * from t1 natural join t2;
++---+------+------+
+| a | b    | c    |
++---+------+------+
+| 2 | yy   | zz   |
++---+------+------+
+1 row in set (0.01 sec)
+
+mysql> select * from t1 left join t2 on t1.a=t2.a;
++---+------+------+------+
+| a | b    | a    | c    |
++---+------+------+------+
+| 1 | xx   | NULL | NULL |
+| 2 | yy   |    2 | zz   |
++---+------+------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from t1 right join t2 on t1.a=t2.a;
++------+------+---+------+
+| a    | b    | a | c    |
++------+------+---+------+
+|    2 | yy   | 2 | zz   |
+| NULL | NULL | 3 | ww   |
++------+------+---+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from t1 natural left join t2;
++---+------+------+
+| a | b    | c    |
++---+------+------+
+| 1 | xx   | NULL |
+| 2 | yy   | zz   |
++---+------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from t1 natural right join t2;
++---+------+------+
+| a | c    | b    |
++---+------+------+
+| 2 | zz   | yy   |
+| 3 | ww   | NULL |
++---+------+------+
+2 rows in set (0.00 sec)
+
+mysql> select * from t1 left join t2 on t1.a=t2.a where t1.a is null;
+Empty set (0.00 sec)
+
+mysql> select * from t1 right join t2 on t1.a=t2.a where t1.a is null;
++------+------+---+------+
+| a    | b    | a | c    |
++------+------+---+------+
+| NULL | NULL | 3 | ww   |
++------+------+---+------+
+1 row in set (0.00 sec)
+
+mysql> (select * from t1 natural left join t2)
+    -> union
+    -> (select * from t1 natural right join t2);
++---+------+------+
+| a | b    | c    |
++---+------+------+
+| 1 | xx   | NULL |
+| 2 | yy   | zz   |
+| 2 | zz   | yy   |
+| 3 | ww   | NULL |
++---+------+------+
+4 rows in set (0.01 sec)
+
+mysql> use company_study
+Database changed
+mysql> show tables;
++-------------------------+
+| Tables_in_company_study |
++-------------------------+
+| department              |
+| dependent               |
+| dept_locations          |
+| employee                |
+| project                 |
+| works_on                |
++-------------------------+
+6 rows in set (0.01 sec)
+
+mysql> select fname, minit, lname, bdate, address
+    -> from employee
+    -> where fname='borg';
+Empty set (0.00 sec)
+
+mysql> select fname, minit, lname, bdate, address
+    -> from employee
+    -> where lname='borg';
++-------+-------+-------+------------+-----------------------+
+| fname | minit | lname | bdate      | address               |
++-------+-------+-------+------------+-----------------------+
+| James | E     | Borg  | 1937-11-10 | 450 Stone, Houston TX |
++-------+-------+-------+------------+-----------------------+
+1 row in set (0.01 sec)
+
+mysql> select *
+    -> from employee, department
+    -> ;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno | Dname          | Dnumber | Mgr_ssn   | Mgr_start_date |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Administration |       4 | 987654321 | 1995-01-01     |
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Administration |       4 | 987654321 | 1995-01-01     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Administration |       4 | 987654321 | 1995-01-01     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Administration |       4 | 987654321 | 1995-01-01     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 | Administration |       4 | 987654321 | 1995-01-01     |
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 | Research       |       5 | 333445555 | 1988-05-22     |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 | Research       |       5 | 333445555 | 1988-05-22     |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 | Research       |       5 | 333445555 | 1988-05-22     |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 | Research       |       5 | 333445555 | 1988-05-22     |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+24 rows in set (0.01 sec)
+
+mysql> select *
+    -> from employee, department
+    -> where dno=dnumber;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno | Dname          | Dnumber | Mgr_ssn   | Mgr_start_date |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 | Headquarters   |       1 | 888665555 | 1981-06-19     |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 | Administration |       4 | 987654321 | 1995-01-01     |
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 | Research       |       5 | 333445555 | 1988-05-22     |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+----------------+---------+-----------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> select ssn, dname
+    -> from employee, department
+    -> where dno=dnumber;
++-----------+----------------+
+| ssn       | dname          |
++-----------+----------------+
+| 987654321 | Administration |
+| 987987987 | Administration |
+| 999887777 | Administration |
+| 888665555 | Headquarters   |
+| 123456789 | Research       |
+| 333445555 | Research       |
+| 453453453 | Research       |
+| 666884444 | Research       |
++-----------+----------------+
+8 rows in set (0.00 sec)
+
+mysql> select fname, lname, address from employee, department
+    -> where dname='headquarters' and dno=dnumber;
++-------+-------+-----------------------+
+| fname | lname | address               |
++-------+-------+-----------------------+
+| James | Borg  | 450 Stone, Houston TX |
++-------+-------+-----------------------+
+1 row in set (0.01 sec)
+
+mysql> select lname, fname, mgr_start_date
+    -> from employee, department
+    -> where dname='administration' and dno=dnumber;
++---------+----------+----------------+
+| lname   | fname    | mgr_start_date |
++---------+----------+----------------+
+| Wallace | Jennifer | 1995-01-01     |
+| Jabbar  | Ahmad    | 1995-01-01     |
+| Zelaya  | Alicia   | 1995-01-01     |
++---------+----------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> select pnumber, dnum, lname, address, bdate
+    -> from project, employee, department
+    -> where plocation='houston' and dnum=dnumber and department.mgr_ssn=employee.ssn;
++---------+------+-------+-----------------------+------------+
+| pnumber | dnum | lname | address               | bdate      |
++---------+------+-------+-----------------------+------------+
+|       3 |    5 | Wong  | 638 Voss, Houston TX  | 1965-12-08 |
+|      20 |    1 | Borg  | 450 Stone, Houston TX | 1937-11-10 |
++---------+------+-------+-----------------------+------------+
+2 rows in set (0.01 sec)
+
+mysql> (select pnumber from department, project, employee
+    -> where dnum=dnumber and lname='smith')
+    -> union
+    -> (select pnumber from department, project, employee
+    -> where mgr_ssn=ssn and lname='smith');
++---------+
+| pnumber |
++---------+
+|       1 |
+|       2 |
+|       3 |
+|      20 |
+|      10 |
+|      30 |
++---------+
+6 rows in set (0.01 sec)
+
+mysql> select *
+    -> from employee
+    -> where exists address='houston tx';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'address='houston tx'' at line 3
+mysql> select *
+    -> from employee
+    -> where address='houston tx';
+Empty set (0.00 sec)
+
+mysql> select fname, lname
+    -> from employee
+    -> where address='houston tx';
+Empty set (0.00 sec)
+
+mysql> select fname, lname
+    -> from employe
+    ->
+    -> ;
+ERROR 1146 (42S02): Table 'company_study.employe' doesn't exist
+mysql> select fname, lname from employee
+    -> where address like '%houston tx%';
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| John     | Smith   |
+| Franklin | Wong    |
+| Joyce    | English |
+| James    | Borg    |
+| Ahmad    | Jabbar  |
++----------+---------+
+5 rows in set (0.01 sec)
+
+mysql> select fname, lname from emplyee
+    -> where bdate like '??6???????';
+ERROR 1146 (42S02): Table 'company_study.emplyee' doesn't exist
+mysql> select fname, lname from employee
+    -> where bdate like '??6???????';
+Empty set (0.01 sec)
+
+mysql> select fname, lname from employee
+    -> where bdate like '??6????????';
+Empty set (0.00 sec)
+
+mysql> select fname, lname from employee
+    -> where bdate like '__6_______';
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| John     | Smith   |
+| Franklin | Wong    |
+| Ramesh   | Narayan |
+| Ahmad    | Jabbar  |
+| Alicia   | Zelaya  |
++----------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select fname, lname from employee
+    -> where bdate like '??6???????';
+Empty set (0.00 sec)
+
+mysql> select fname, lname, 1.1*salary as increased_sal
+    -> from employee, project
+    -> where pname='newbenefits' and project.dnum=employee.dno;
++----------+---------+---------------+
+| fname    | lname   | increased_sal |
++----------+---------+---------------+
+| Jennifer | Wallace |       47300.0 |
+| Ahmad    | Jabbar  |       27500.0 |
+| Alicia   | Zelaya  |       27500.0 |
++----------+---------+---------------+
+3 rows in set (0.01 sec)
+
+mysql> select fname, lname, 1.1*salary as increased_sal
+    -> from employee, project
+    -> where pname='newbenefits';
++----------+---------+---------------+
+| fname    | lname   | increased_sal |
++----------+---------+---------------+
+| John     | Smith   |       33000.0 |
+| Franklin | Wong    |       44000.0 |
+| Joyce    | English |       27500.0 |
+| Ramesh   | Narayan |       41800.0 |
+| James    | Borg    |       60500.0 |
+| Jennifer | Wallace |       47300.0 |
+| Ahmad    | Jabbar  |       27500.0 |
+| Alicia   | Zelaya  |       27500.0 |
++----------+---------+---------------+
+8 rows in set (0.00 sec)
+
+mysql> select fname, lname, salary
+    -> from employee
+    -> where dno=5 and 30000<salary<40000;
++----------+---------+--------+
+| fname    | lname   | salary |
++----------+---------+--------+
+| John     | Smith   |  30000 |
+| Franklin | Wong    |  40000 |
+| Joyce    | English |  25000 |
+| Ramesh   | Narayan |  38000 |
++----------+---------+--------+
+4 rows in set (0.01 sec)
+
+mysql> select fname, lname, salary
+    -> from employee
+    -> where dno=5 and salary>3000 and salary<4000;
+Empty set (0.00 sec)
+
+mysql> select fname, lname, salary
+    -> from employee
+    -> where dno=5 and salary>30000 and salary<40000;
++--------+---------+--------+
+| fname  | lname   | salary |
++--------+---------+--------+
+| Ramesh | Narayan |  38000 |
++--------+---------+--------+
+1 row in set (0.00 sec)
+
+mysql> select fname, lname, salary
+    -> from employee
+    -> where (salary between 30000 and 40000) and dno=5;
++----------+---------+--------+
+| fname    | lname   | salary |
++----------+---------+--------+
+| John     | Smith   |  30000 |
+| Franklin | Wong    |  40000 |
+| Ramesh   | Narayan |  38000 |
++----------+---------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select *
+    -> from employee
+    -> order by salary asc, bdate desc;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 |
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 |
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+8 rows in set (0.01 sec)
+
+mysql> select * from employee
+    -> order by salary desc, bdate asc;
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| Fname    | Minit | Lname   | Ssn       | Bdate      | Address                 | Sex  | Salary | Super_ssn | Dno |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+| James    | E     | Borg    | 888665555 | 1937-11-10 | 450 Stone, Houston TX   | M    |  55000 | NULL      |   1 |
+| Jennifer | S     | Wallace | 987654321 | 1941-06-20 | 291 Berry, Bellaire TX  | F    |  43000 | 888665555 |   4 |
+| Franklin | T     | Wong    | 333445555 | 1965-12-08 | 638 Voss, Houston TX    | M    |  40000 | 888665555 |   5 |
+| Ramesh   | K     | Narayan | 666884444 | 1962-09-15 | 975 Fire Oak, Humble TX | M    |  38000 | 333445555 |   5 |
+| John     | B     | Smith   | 123456789 | 1965-01-09 | 731 Fondren, Houston TX | M    |  30000 | 333445555 |   5 |
+| Alicia   | J     | Zelaya  | 999887777 | 1968-01-19 | 3321 Castle, Spring TX  | F    |  25000 | 987654321 |   4 |
+| Ahmad    | V     | Jabbar  | 987987987 | 1969-03-29 | 980 Dallas, Houston TX  | M    |  25000 | 987654321 |   4 |
+| Joyce    | A     | English | 453453453 | 1972-07-31 | 5631 Rice, Houston TX   | F    |  25000 | 333445555 |   5 |
++----------+-------+---------+-----------+------------+-------------------------+------+--------+-----------+-----+
+8 rows in set (0.00 sec)
+
+mysql> select fname, lname
+    -> from employee
+    -> where super_ssn is not null;
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| John     | Smith   |
+| Joyce    | English |
+| Ramesh   | Narayan |
+| Franklin | Wong    |
+| Jennifer | Wallace |
+| Ahmad    | Jabbar  |
+| Alicia   | Zelaya  |
++----------+---------+
+7 rows in set (0.00 sec)
+
+mysql> select fname, lname from employee
+    -> ;
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| John     | Smith   |
+| Franklin | Wong    |
+| Joyce    | English |
+| Ramesh   | Narayan |
+| James    | Borg    |
+| Jennifer | Wallace |
+| Ahmad    | Jabbar  |
+| Alicia   | Zelaya  |
++----------+---------+
+8 rows in set (0.00 sec)
+
+mysql> select e.fname, e.lname, s.fname, s.lname
+    -> from employee e, employee s
+    -> where e.super_ssn=s.ssn is null;
++-------+-------+----------+---------+
+| fname | lname | fname    | lname   |
++-------+-------+----------+---------+
+| James | Borg  | John     | Smith   |
+| James | Borg  | Franklin | Wong    |
+| James | Borg  | Joyce    | English |
+| James | Borg  | Ramesh   | Narayan |
+| James | Borg  | James    | Borg    |
+| James | Borg  | Jennifer | Wallace |
+| James | Borg  | Ahmad    | Jabbar  |
+| James | Borg  | Alicia   | Zelaya  |
++-------+-------+----------+---------+
+8 rows in set (0.01 sec)
+
+mysql> select e.fname, e.lname, s.fname, s.lname
+    -> from employee e, employee s
+    -> where e.super_ssn=s.ssn is not null;
++----------+---------+----------+---------+
+| fname    | lname   | fname    | lname   |
++----------+---------+----------+---------+
+| John     | Smith   | John     | Smith   |
+| Franklin | Wong    | John     | Smith   |
+| Joyce    | English | John     | Smith   |
+| Ramesh   | Narayan | John     | Smith   |
+| Jennifer | Wallace | John     | Smith   |
+| Ahmad    | Jabbar  | John     | Smith   |
+| Alicia   | Zelaya  | John     | Smith   |
+| John     | Smith   | Franklin | Wong    |
+| Franklin | Wong    | Franklin | Wong    |
+| Joyce    | English | Franklin | Wong    |
+| Ramesh   | Narayan | Franklin | Wong    |
+| Jennifer | Wallace | Franklin | Wong    |
+| Ahmad    | Jabbar  | Franklin | Wong    |
+| Alicia   | Zelaya  | Franklin | Wong    |
+| John     | Smith   | Joyce    | English |
+| Franklin | Wong    | Joyce    | English |
+| Joyce    | English | Joyce    | English |
+| Ramesh   | Narayan | Joyce    | English |
+| Jennifer | Wallace | Joyce    | English |
+| Ahmad    | Jabbar  | Joyce    | English |
+| Alicia   | Zelaya  | Joyce    | English |
+| John     | Smith   | Ramesh   | Narayan |
+| Franklin | Wong    | Ramesh   | Narayan |
+| Joyce    | English | Ramesh   | Narayan |
+| Ramesh   | Narayan | Ramesh   | Narayan |
+| Jennifer | Wallace | Ramesh   | Narayan |
+| Ahmad    | Jabbar  | Ramesh   | Narayan |
+| Alicia   | Zelaya  | Ramesh   | Narayan |
+| John     | Smith   | James    | Borg    |
+| Franklin | Wong    | James    | Borg    |
+| Joyce    | English | James    | Borg    |
+| Ramesh   | Narayan | James    | Borg    |
+| Jennifer | Wallace | James    | Borg    |
+| Ahmad    | Jabbar  | James    | Borg    |
+| Alicia   | Zelaya  | James    | Borg    |
+| John     | Smith   | Jennifer | Wallace |
+| Franklin | Wong    | Jennifer | Wallace |
+| Joyce    | English | Jennifer | Wallace |
+| Ramesh   | Narayan | Jennifer | Wallace |
+| Jennifer | Wallace | Jennifer | Wallace |
+| Ahmad    | Jabbar  | Jennifer | Wallace |
+| Alicia   | Zelaya  | Jennifer | Wallace |
+| John     | Smith   | Ahmad    | Jabbar  |
+| Franklin | Wong    | Ahmad    | Jabbar  |
+| Joyce    | English | Ahmad    | Jabbar  |
+| Ramesh   | Narayan | Ahmad    | Jabbar  |
+| Jennifer | Wallace | Ahmad    | Jabbar  |
+| Ahmad    | Jabbar  | Ahmad    | Jabbar  |
+| Alicia   | Zelaya  | Ahmad    | Jabbar  |
+| John     | Smith   | Alicia   | Zelaya  |
+| Franklin | Wong    | Alicia   | Zelaya  |
+| Joyce    | English | Alicia   | Zelaya  |
+| Ramesh   | Narayan | Alicia   | Zelaya  |
+| Jennifer | Wallace | Alicia   | Zelaya  |
+| Ahmad    | Jabbar  | Alicia   | Zelaya  |
+| Alicia   | Zelaya  | Alicia   | Zelaya  |
++----------+---------+----------+---------+
+56 rows in set (0.00 sec)
+
+mysql> select fname, lname
+    -> from employee
+    -> where super_ssn is null;
++-------+-------+
+| fname | lname |
++-------+-------+
+| James | Borg  |
++-------+-------+
+1 row in set (0.00 sec)
+
+mysql> select fname, lname
+    -> from employee, dependent
+    -> where essn=ssn and employee.sex=dependent.sex;
++----------+-------+
+| fname    | lname |
++----------+-------+
+| John     | Smith |
+| Franklin | Wong  |
++----------+-------+
+2 rows in set (0.00 sec)
+
+mysql> select fname, lname
+    -> from dependent, employee
+    -> where essn=ssn is null;
+Empty set (0.00 sec)
+
+mysql> select fname, lname
+    -> from dependent, employee
+    -> where essn is null;
+Empty set (0.00 sec)
+
+mysql> select fname, lname from employee
+    -> where not exists(select * from department where ssn=essn);
+ERROR 1054 (42S22): Unknown column 'essn' in 'where clause'
+mysql> select fname, lname from employee
+    -> where not exists(select * from dependent where ssn=essn);
++--------+---------+
+| fname  | lname   |
++--------+---------+
+| Joyce  | English |
+| Ramesh | Narayan |
+| James  | Borg    |
+| Ahmad  | Jabbar  |
+| Alicia | Zelaya  |
++--------+---------+
+5 rows in set (0.01 sec)
+
+mysql> select ssn
+    -> from project, employee
+    -> where pno in (1,2,3);
+ERROR 1054 (42S22): Unknown column 'pno' in 'where clause'
+mysql> select ssn
+    -> from project, employee
+    -> where pnumber in (1,2,3);
++-----------+
+| ssn       |
++-----------+
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
++-----------+
+24 rows in set (0.01 sec)
+
+mysql> select distinct ssn from project, employee
+    -> where pnumber in (1,2,3);
++-----------+
+| ssn       |
++-----------+
+| 888665555 |
+| 987654321 |
+| 987987987 |
+| 999887777 |
+| 123456789 |
+| 333445555 |
+| 453453453 |
+| 666884444 |
++-----------+
+8 rows in set (0.00 sec)
+
+mysql> select essn from works_on, project
+    -> where pnumber in (1,2,3);
++-----------+
+| essn      |
++-----------+
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 123456789 |
+| 123456789 |
+| 123456789 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 453453453 |
+| 453453453 |
+| 453453453 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 666884444 |
+| 666884444 |
+| 666884444 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
+| 333445555 |
+| 333445555 |
+| 333445555 |
+| 888665555 |
+| 888665555 |
+| 888665555 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987654321 |
+| 987987987 |
+| 987987987 |
+| 987987987 |
+| 999887777 |
+| 999887777 |
+| 999887777 |
++-----------+
+48 rows in set (0.01 sec)
+
+mysql> select distinct essn from works_on, project
+    -> where pnumber in (1,2,3);
++-----------+
+| essn      |
++-----------+
+| 123456789 |
+| 453453453 |
+| 333445555 |
+| 666884444 |
+| 987987987 |
+| 999887777 |
+| 888665555 |
+| 987654321 |
++-----------+
+8 rows in set (0.00 sec)
+
+mysql> select distinct essn from works_on
+    -> where pno in (1,2,3);
++-----------+
+| essn      |
++-----------+
+| 123456789 |
+| 453453453 |
+| 333445555 |
+| 666884444 |
++-----------+
+4 rows in set (0.00 sec)
+
+mysql> select sum(salary), max(salary), min(salary), avg(salary)
+    -> from employee;
++-------------+-------------+-------------+-------------+
+| sum(salary) | max(salary) | min(salary) | avg(salary) |
++-------------+-------------+-------------+-------------+
+|      281000 |       55000 |       25000 |  35125.0000 |
++-------------+-------------+-------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select count(*)
+    -> from employee;
++----------+
+| count(*) |
++----------+
+|        8 |
++----------+
+1 row in set (0.03 sec)
+
+mysql> select count(*)
+    -> ;
++----------+
+| count(*) |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select dname, count(*)
+    -> from department
+    -> group by dname;
++----------------+----------+
+| dname          | count(*) |
++----------------+----------+
+| Administration |        1 |
+| Headquarters   |        1 |
+| Research       |        1 |
++----------------+----------+
+3 rows in set (0.01 sec)
+
+mysql> select dname, count(*)
+    -> from department, employee
+    -> where dno=dnumber
+    -> group by dname;
++----------------+----------+
+| dname          | count(*) |
++----------------+----------+
+| Administration |        3 |
+| Headquarters   |        1 |
+| Research       |        4 |
++----------------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select dname, sum(salary), max(salary), min(salary), avg(salary)
+    -> from employee, department
+    -> where dno=dnumber
+    -> group by dname;
++----------------+-------------+-------------+-------------+-------------+
+| dname          | sum(salary) | max(salary) | min(salary) | avg(salary) |
++----------------+-------------+-------------+-------------+-------------+
+| Administration |       93000 |       43000 |       25000 |  31000.0000 |
+| Headquarters   |       55000 |       55000 |       55000 |  55000.0000 |
+| Research       |      133000 |       40000 |       25000 |  33250.0000 |
++----------------+-------------+-------------+-------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select pnumber, pname, count(*_
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '_' at line 1
+mysql> select pnumber, pname, count(*)
+    -> from project;
++---------+-----------------+----------+
+| pnumber | pname           | count(*) |
++---------+-----------------+----------+
+|      10 | Computerization |        6 |
++---------+-----------------+----------+
+1 row in set (0.00 sec)
+
+mysql> select pnumber, pname, count(*)
+    -> from project
+    -> group by pnumber;
++---------+-----------------+----------+
+| pnumber | pname           | count(*) |
++---------+-----------------+----------+
+|       1 | ProductX        |        1 |
+|       2 | ProductY        |        1 |
+|       3 | ProductZ        |        1 |
+|      10 | Computerization |        1 |
+|      20 | Reorganization  |        1 |
+|      30 | Newbenefits     |        1 |
++---------+-----------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select pnumber, pname, count(*)
+    -> from project
+    -> group by pnumber, pname;
++---------+-----------------+----------+
+| pnumber | pname           | count(*) |
++---------+-----------------+----------+
+|      10 | Computerization |        1 |
+|      30 | Newbenefits     |        1 |
+|       1 | ProductX        |        1 |
+|       2 | ProductY        |        1 |
+|       3 | ProductZ        |        1 |
+|      20 | Reorganization  |        1 |
++---------+-----------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select pnumber, pname, count(*)
+    -> from project, works_on
+    -> where pnumber=pno
+    -> group by pnumber, pname;
++---------+-----------------+----------+
+| pnumber | pname           | count(*) |
++---------+-----------------+----------+
+|      10 | Computerization |        3 |
+|      30 | Newbenefits     |        3 |
+|       1 | ProductX        |        2 |
+|       2 | ProductY        |        3 |
+|       3 | ProductZ        |        2 |
+|      20 | Reorganization  |        3 |
++---------+-----------------+----------+
+6 rows in set (0.00 sec)
+
+mysql> select pnumber, pname, count(*)
+    -> from project, works_on
+    -> where pnumber=pno and count(*)>2
+    -> group by pnumber, pname;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select pnumber, pname, count(*)
+    -> from project, works_on
+    -> where pnumber=pno and count(*)>2;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select pnumber, pname, count(*)
+    -> from project, works_on
+    -> where pnumber=pno
+    -> group by pnumber, pname
+    -> having count(*)>2;
++---------+-----------------+----------+
+| pnumber | pname           | count(*) |
++---------+-----------------+----------+
+|      10 | Computerization |        3 |
+|      30 | Newbenefits     |        3 |
+|       2 | ProductY        |        3 |
+|      20 | Reorganization  |        3 |
++---------+-----------------+----------+
+4 rows in set (0.00 sec)
+
+mysql> select pnumber, pname, count(*)
+    -> from project, works_on
+    -> where pno=5
+    -> group by pnumber, pname;
+Empty set (0.00 sec)
+
+mysql> select pnumber, pname, count(*) from project, works_on
+    -> where pnumber=5
+    -> group by pnumber, pname;
+Empty set (0.00 sec)
+
+mysql> select pnumber, pname, count(*) from project, works_on
+    -> where pno=5
+    -> group by pnumber, pname;
+Empty set (0.00 sec)
+
+mysql> select pnumber, pname, count(*) from project, works_on, employee
+    -> where pnumber=pno and ssn=essn and dno=5
+    -> group by pnumber, pname;
++---------+-----------------+----------+
+| pnumber | pname           | count(*) |
++---------+-----------------+----------+
+|       1 | ProductX        |        2 |
+|       2 | ProductY        |        3 |
+|       3 | ProductZ        |        2 |
+|      10 | Computerization |        1 |
+|      20 | Reorganization  |        1 |
++---------+-----------------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select dnumber, ssn, salary
+    -> from department, employee
+    -> where dno=dnumber and salary>40000 and count(*)>2;
+ERROR 1111 (HY000): Invalid use of group function
+mysql> select dnumber, ssn, salary
+    -> from department, employee
+    -> where dno=dnumber and salary>40000
+    -> group by dnumber
+    -> having count(*)>2;
+Empty set (0.00 sec)
+
+mysql> select dno, ssn, salary
+    -> from department, employee
+    -> where dno=dnumber and salary>40000
+    -> group by dnumber
+    -> having ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 5
+mysql> select dno, ssn, salary
+    -> where dno=dnumber and salary>40000
+    -> group by dno
+    -> having count(*)>2;
+ERROR 1054 (42S22): Unknown column 'dno' in 'field list'
+mysql> select dno, ssn, salary
+    -> from department, employee
+    -> where dno=dnumber and salary>40000
+    -> group by dno
+    -> having count(*)>2;
+Empty set (0.00 sec)
+
+mysql> select dumber, ssn, salary
+    -> from department, employee
+    -> where dno=dnumber and salary>40000
+    -> and dno in (select dno from employee group by dno having count(*)>2)
+    -> group by dnumber;
+ERROR 1054 (42S22): Unknown column 'dumber' in 'field list'
+mysql> select dnumber, ssn, salary
+    -> from department, employee
+    -> where dno=dnumber and salary>40000
+    -> and dno in (select dno from employee group by dno having count(*)>2)
+    -> group by dnumber;
++---------+-----------+--------+
+| dnumber | ssn       | salary |
++---------+-----------+--------+
+|       4 | 987654321 |  43000 |
++---------+-----------+--------+
+1 row in set (0.01 sec)
+
+mysql> (select distinct pnumber from project, department, employee
+    -> where dnum=dnuber and mgr_ssn=ssn and lname='smith')
+    -> union
+    -> (select distinct pnumber from project, works_on, employee
+    -> where pnumber=pno and essn=ssn and lname='smith');
+ERROR 1054 (42S22): Unknown column 'dnuber' in 'where clause'
+mysql> (select distinct pnumber from project, department, employee
+    -> where dnum=dnumber and mgr_ssn=ssn and lname='smith')
+    -> union
+    -> (select distinct pnumber from project, works_on, employee
+    -> where pnumber=pno and essn=ssn and lname='smith');
++---------+
+| pnumber |
++---------+
+|       1 |
+|       2 |
++---------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+201124 중간부터 trigger 관련 시작
+
+Microsoft Windows [Version 10.0.18363.1198]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\현조형님>mysql -uroot -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 20
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use 201014quiz
+Database changed
+mysql> show tables;
++----------------------+
+| Tables_in_201014quiz |
++----------------------+
+| course               |
+| grade_report         |
+| prerequisite         |
+| section              |
+| student              |
++----------------------+
+5 rows in set (0.01 sec)
+
+mysql> select name from student where majoe='cs';
+ERROR 1054 (42S22): Unknown column 'majoe' in 'where clause'
+mysql> select name from student where major='cs';
++-------+
+| name  |
++-------+
+| Brown |
+| Jones |
+| Smith |
+| Patel |
++-------+
+4 rows in set (0.01 sec)
+
+mysql> select name from student, section
+    -> where instructor='king' and year in (2007, 2008);
++-------+
+| name  |
++-------+
+| Brown |
+| Gauss |
+| Jones |
+| Smith |
+| Patel |
++-------+
+5 rows in set (0.02 sec)
+
+mysql> select course_name from course, section
+    -> where instructor='king' and year in (2007, 2008);
++---------------------------+
+| course_name               |
++---------------------------+
+| Data Structures           |
+| Database                  |
+| Discrete Mathematics      |
+| Intro to Computer Science |
++---------------------------+
+4 rows in set (0.02 sec)
+
+mysql> select name from student, section
+    -> where instructor='king' and course.course_number=section.course_number and year in (2007, 2008);
+ERROR 1054 (42S22): Unknown column 'course.course_number' in 'where clause'
+mysql> select name from course, section
+    -> where instructor='king' and course.course_number=section.course_number and year in (2007, 2008);
+ERROR 1054 (42S22): Unknown column 'name' in 'field list'
+mysql> select course_name from course, section
+    -> where instructor='king' and course.course_number=section.course_number and year in (2007, 2008);
++----------------------+
+| course_name          |
++----------------------+
+| Discrete Mathematics |
++----------------------+
+1 row in set (0.01 sec)
+
+mysql> select course_number, semester, year, student_number
+    -> from student, section
+    -> where instructor='king';
++---------------+----------+------+----------------+
+| course_number | semester | year | student_number |
++---------------+----------+------+----------------+
+| MATH2410      | Fall     | 2007 |              8 |
+| MATH2410      | Fall     | 2007 |              9 |
+| MATH2410      | Fall     | 2007 |             15 |
+| MATH2410      | Fall     | 2007 |             17 |
+| MATH2410      | Fall     | 2007 |             22 |
++---------------+----------+------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct course_number, semester, year, student_number
+    -> from student, section
+    -> where instructor='king' and course.course_number=section.course_number and year in (2007, 2008);
+ERROR 1054 (42S22): Unknown column 'course.course_number' in 'where clause'
+mysql> select distinct course_number, semester, year, student_number
+    -> from student, section
+    -> where instructor='king';
++---------------+----------+------+----------------+
+| course_number | semester | year | student_number |
++---------------+----------+------+----------------+
+| MATH2410      | Fall     | 2007 |              8 |
+| MATH2410      | Fall     | 2007 |              9 |
+| MATH2410      | Fall     | 2007 |             15 |
+| MATH2410      | Fall     | 2007 |             17 |
+| MATH2410      | Fall     | 2007 |             22 |
++---------------+----------+------+----------------+
+5 rows in set (0.01 sec)
+
+mysql> select course_number, semester, year, student_number
+    -> from section, grade_report
+    -> where instructor='king' and section.student_identifier=grade_report.student_identifier;
+ERROR 1054 (42S22): Unknown column 'section.student_identifier' in 'where clause'
+mysql> select course_number, semester, year, student_number
+    -> from section, grade_report
+    -> where instructor='king' and section.section_identifier=grade_report.student_identifier;
+ERROR 1054 (42S22): Unknown column 'grade_report.student_identifier' in 'where clause'
+mysql> select course_number, semester, year, student_number
+    -> from section, grade_report
+    -> where instructor='king' and section.student_identifier=grade_report.section_identifier;
+ERROR 1054 (42S22): Unknown column 'section.student_identifier' in 'where clause'
+mysql> select course_number, semester, year, student_number
+    -> from section, grade_report
+    -> where instructor='king' and section.section_identifier=grade_report.section_identifier;
++---------------+----------+------+----------------+
+| course_number | semester | year | student_number |
++---------------+----------+------+----------------+
+| MATH2410      | Fall     | 2007 |              8 |
+| MATH2410      | Fall     | 2007 |              9 |
++---------------+----------+------+----------------+
+2 rows in set (0.01 sec)
+
+mysql> select course_number, semester, year, count(*)
+    -> from section, grade_report
+    -> where instructor='king' and section.student_identifier=grade_report.section_identifier
+    -> group by course_number, semester, year;
+ERROR 1054 (42S22): Unknown column 'section.student_identifier' in 'where clause'
+mysql> select course_number, semester, year, count(*)
+    -> from section, grade_report
+    -> where instructor='king' and section.section_identifier=grade_report.section_identifier;
++---------------+----------+------+----------+
+| course_number | semester | year | count(*) |
++---------------+----------+------+----------+
+| MATH2410      | Fall     | 2007 |        2 |
++---------------+----------+------+----------+
+1 row in set (0.00 sec)
+
+mysql> select name, course_name, course_number, credit_hours, semester, year, grade
+    -> from student, course, section, grade_report
+    -> where class=4 and major='cs'
+    -> and course.course_number=section.course_number
+    -> and student.student_number=grade_report.student_number
+    -> and section.section_identifier=grade_report.section_identifier
+    -> group by name;
+ERROR 1052 (23000): Column 'course_number' in field list is ambiguous
+mysql> select name, course_name, course_number, credit_hours, semester, year, grade
+    -> from student, course, section, grade_report
+    -> where class=4 and major='cs'
+    -> and student.student_number=grade_report.student_number
+    -> and section.section_identifier=grade_report.section_identifier
+    -> group by name;
+ERROR 1052 (23000): Column 'course_number' in field list is ambiguous
+mysql> select name, course_name, c.course_number, credit_hours, semester, year, grade
+    -> from student st, course c, section s, grade_report g
+    -> where class=4 and major='cs'
+    -> and st.student_number=g.student_number
+    -> and c.course_number=s.course_number
+    -> and s.section_identifier=g.section_identifier;
++-------+---------------------------+---------------+--------------+----------+------+-------+
+| name  | course_name               | course_number | credit_hours | semester | year | grade |
++-------+---------------------------+---------------+--------------+----------+------+-------+
+| Jones | Intro to Computer Science | CS1310        |            4 | Fall     | 2007 | B+    |
+| Jones | Intro to Computer Science | CS1310        |            4 | Fall     | 2008 | B     |
+| Patel | Data Structures           | CS3320        |            4 | Spring   | 2008 | A-    |
+| Patel | Intro to Computer Science | CS1310        |            4 | Fall     | 2008 | B-    |
+| Patel | Database                  | CS3380        |            3 | Fall     | 2008 | B     |
++-------+---------------------------+---------------+--------------+----------+------+-------+
+5 rows in set (0.01 sec)
+
+mysql> from student st, course c, section s, grade_report g
+    -> where class=4 and major='cs'
+    -> and st.student_number=g.student_number
+    -> and c.course_number=s.course_number
+    -> and s.section_identifier=g.section_identifier
+    -> group by namr;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from student st, course c, section s, grade_report g
+where class=4 and major='cs' at line 1
+mysql> from student st, course c, section s, grade_report g
+    -> and st.student_number=g.student_number
+    -> and c.course_number=s.course_number
+    -> and s.section_identifier=g.section_identifier
+    -> group by name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from student st, course c, section s, grade_report g
+and st.student_number=g.stu' at line 1
+mysql> select student st, course c, section s, grade_report g
+    -> and st.student_number=g.student_number
+    -> and c.course_number=s.course_number
+    -> and s.section_identifier=g.section_identifier
+    -> group by name;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'and st.student_number=g.student_number
+and c.course_number=s.course_number
+and s' at line 2
+mysql> select name, course_name, c.course_number, credit_hours, semester, year, grade
+    -> from student st, course c, section s, grade_report g
+    -> where st.student_number=g.student_number
+    -> and c.course_number=s.course_number
+    -> and s.section_identifier=g.section_identifier
+    -> group by name;
++-------+---------------------------+---------------+--------------+----------+------+-------+
+| name  | course_name               | course_number | credit_hours | semester | year | grade |
++-------+---------------------------+---------------+--------------+----------+------+-------+
+| Brown | Intro to Computer Science | CS1310        |            4 | Fall     | 2007 | A     |
+| Jones | Intro to Computer Science | CS1310        |            4 | Fall     | 2007 | B+    |
+| Smith | Intro to Computer Science | CS1310        |            4 | Fall     | 2008 | C     |
+| Patel | Intro to Computer Science | CS1310        |            4 | Fall     | 2008 | B-    |
+| Gauss | Discrete Mathematics      | MATH2410      |            3 | Fall     | 2007 | A     |
++-------+---------------------------+---------------+--------------+----------+------+-------+
+5 rows in set (0.01 sec)
+
+mysql> select name, major from student
+    -> where not exists
+    -> (select * from grade_report
+    -> where student_number=student.student_number and not(grade='A')
+    -> );
++-------+-------+
+| name  | major |
++-------+-------+
+| Gauss | MATH  |
++-------+-------+
+1 row in set (0.01 sec)
+
+mysql> select name, major from student
+    -> where not exists
+    -> (select * from grade_report
+    -> where student_number=student.student_number and grade='A')
+    -> ;
++-------+-------+
+| name  | major |
++-------+-------+
+| Jones | CS    |
+| Smith | CS    |
+| Patel | CS    |
++-------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into course
+    -> values ('knowledge engineering', 'cs4390', 3, 'cs');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> update student
+    -> set class=2
+    -> where name='smith';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> delimiter //
+mysql> create trigger upd_check before insert on student
+    -> for each row
+    -> begin
+    -> if NEW.class<1 then
+    -> set NEW.class=1;
+    -> elseif NEW.class>4 then
+    -> set NEW.class=4;
+    -> end if;
+    -> end; //
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> delimiter :
+mysql> insert into student
+    -> values('johnson', 25, 6, 'math');
+    -> ;
+    -> ;
+    -> quit
+    -> ;;
+    -> //
+    -> select * from student;
+    -> endl;
+    -> end;
+    -> ?
+    -> //
+    -> ^Z
+Bye
+
+C:\Users\현조형님>mysql -uroot -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 21
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use trigger_study
+Database changed
+mysql> use 201014quiz
+Database changed
+mysql> show trigger
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'trigger' at line 1
+mysql> insert into student
+    -> values('johnson', 25, 6, 'math');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from student;
++---------+----------------+-------+-------+
+| Name    | Student_Number | Class | Major |
++---------+----------------+-------+-------+
+| Brown   |              8 | 2     | CS    |
+| Gauss   |              9 | 4     | MATH  |
+| Jones   |             15 | 4     | CS    |
+| Smith   |             17 | 2     | CS    |
+| Patel   |             22 | 4     | CS    |
+| johnson |             25 | 4     | math  |
++---------+----------------+-------+-------+
+6 rows in set (0.01 sec)
+
+mysql> delimiter #
+mysql> create trigger del_check before delete on student
+    -> for each row
+    -> begin
+    -> delete from grade_report where student_number=old.student_number;
+    -> end; #
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> delimiter :
+mysql> delete from student
+    -> where name='smith' and student_number=17;
+    -> ;
+    -> ^Z
+Bye
+
+C:\Users\현조형님>mysql -uroot -p
+Enter password: ************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 22
+Server version: 8.0.21 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use 201014quiz
+Database changed
+mysql> delete from student
+    -> where name='smith' and student_number=17;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from student;
++---------+----------------+-------+-------+
+| Name    | Student_Number | Class | Major |
++---------+----------------+-------+-------+
+| Brown   |              8 | 2     | CS    |
+| Gauss   |              9 | 4     | MATH  |
+| Jones   |             15 | 4     | CS    |
+| Patel   |             22 | 4     | CS    |
+| johnson |             25 | 4     | math  |
++---------+----------------+-------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from grade_report;
++----------------+--------------------+-------+
+| Student_Number | Section_Identifier | Grade |
++----------------+--------------------+-------+
+|              8 |                 85 | A     |
+|              8 |                 92 | A     |
+|              8 |                102 | B     |
+|              8 |                135 | A     |
+|              9 |                 85 | A     |
+|              9 |                112 | A     |
+|             15 |                 92 | B+    |
+|             15 |                119 | B     |
+|             22 |                102 | A-    |
+|             22 |                119 | B-    |
+|             22 |                135 | B     |
++----------------+--------------------+-------+
+11 rows in set (0.00 sec)
+
+mysql>
+
+
+
+
+
+
